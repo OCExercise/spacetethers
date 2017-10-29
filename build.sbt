@@ -1,7 +1,9 @@
 import Dependencies._
 
+scalaVersion := "2.12.3"
+
 // Project name (artifact name in Maven)
-name := "applet"
+name := "tethers"
 
 // orgnization name (e.g., the package name of the project)
 organization := "com.spacetethers"
