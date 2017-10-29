@@ -2,30 +2,17 @@ package com.spacetethers;
 
 // Copyright (c) Vincent Cate 2002
 
-import java.awt.Image;
-import java.awt.Graphics;
-import java.awt.Dimension;
-import java.awt.TextArea;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.applet.Applet;
-import java.util.StringTokenizer;
-import java.awt.List;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.Font;
-import java.awt.event.ItemListener;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.awt.FlowLayout;
-import java.awt.Color;
-import java.awt.SystemColor;
-import java.util.*;
+import java.awt.event.ItemListener;
+import java.util.Enumeration;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 public class SpaceTethers
-    extends Applet
+    extends Frame
     implements ActionListener {
   boolean isStandalone = true;
   static boolean simulationStarted = false;
@@ -47,6 +34,21 @@ public class SpaceTethers
   FlowLayout flowLayout1 = new FlowLayout();
   GridBagLayout gridBagLayout1 = new GridBagLayout();
   String lastToken="";
+
+
+  public SpaceTethers() {
+    try {
+      jbInit();
+      this.start();
+      this.setSize(1920,1080);
+      setVisible(true);
+    }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+
 
   public void start() {
 
@@ -163,7 +165,12 @@ public class SpaceTethers
       stopButton.setLabel("  Stop  ");
       stopButton.setActionCommand("Stop");
       this.removeAll();
-      this.init();
+      try {
+        jbInit();
+      }
+      catch (Exception ex) {
+        ex.printStackTrace();
+      }
       this.start();
     }
   }
@@ -917,7 +924,7 @@ public class SpaceTethers
         throw new Exception(errMsg);
       }
     }
-    //this.setSize(k.xPixels, k.yPixels);
+    // this.setSize(k.xPixels, k.yPixels);
     setStatusMessage();
 
     int o;
@@ -1082,19 +1089,6 @@ public class SpaceTethers
     return(k.readDouble(s));
   }
 
-//Initialize the applet
-
-  public void init() {
-    try {
-      jbInit();
-    }
-    catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-
-
   private static void setMessage(String message) {
     if (message != null) {
       CurrentMessage = message.toString();
@@ -1167,10 +1161,10 @@ public class SpaceTethers
 
   }
 
-//Get Applet information
+//Get app information
 
   public String getAppletInfo() {
-    return "Applet Information";
+    return "Application Information";
   }
 
 //Get parameter info

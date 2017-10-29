@@ -13,8 +13,8 @@ public class k {
   public static mass tetherEnd3D=null;  // When doing Z vs lengths this is endpoint
 
   public static double pi = java.lang.Math.PI;
-  public static double xPixels=700;   // comes from Applet.getSize()
-  public static double yPixels=450;   // comes from Applet.getSize()
+  public static double xPixels=700;   // comes from SpaceTethers.getSize()
+  public static double yPixels=450;   // comes from SpaceTethers.getSize()
   public static double xOffset=350;   // set from xPixels
   public static double yOffset=225;   // set from yPixels
   public static double scaleYMeters=25000000.0;
