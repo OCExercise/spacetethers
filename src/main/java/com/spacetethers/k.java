@@ -164,7 +164,7 @@ public class k {
      gScale =  YMeters / k.yPixels;
   }
 
-  // In Applet1.java during paint() part of simulation loop for the objects
+  // In SpaceTethers.java during paint() part of simulation loop for the objects
   // we have to set the screen origin k.gOrigin
   // Note that Earth and Moon are masses with those labels
   public static void setOrigin(String origin) throws Exception {
@@ -336,7 +336,7 @@ public class k {
     return(buffer.toString());
   }
 
-  // We can set globals at startup in Applet1.java or
+  // We can set globals at startup in SpaceTethers.java or
   //  at runtime from attime.java
   public static boolean isGlobal(String name) throws Exception {
     return(isGlobalAndSetGlobal(name, false, null));

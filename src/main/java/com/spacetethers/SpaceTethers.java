@@ -24,7 +24,7 @@ import java.awt.Color;
 import java.awt.SystemColor;
 import java.util.*;
 
-public class Applet1
+public class SpaceTethers
     extends Applet
     implements ActionListener {
   boolean isStandalone = true;
@@ -850,7 +850,7 @@ public class Applet1
           ntUsed = true;
         }
       } catch (Exception e1) {
-        throw new Exception("Applet1.simulate MakeTether " + e1.toString());
+        throw new Exception("SpaceTethers.simulate MakeTether " + e1.toString());
       }
 
       if (nt.equals("MakeMass")) {
@@ -1115,12 +1115,12 @@ public class Applet1
     list.setForeground(SystemColor.textText);
     list.setBackground(new Color(240, 240, 240));
     list.setMultipleMode(false);
-    list.addItemListener(new Applet1_list_itemAdapter(this));
+    list.addItemListener(new SpaceTethers_list_itemAdapter(this));
 
     startButton = new Button("Start Simulation");
     startButton.setActionCommand("Start Simulation");
     startButton.setFont(new Font("Dialog", 1, 12));
-    startButton.addActionListener(new Applet1_startButton_actionAdapter(this));
+    startButton.addActionListener(new SpaceTethers_startButton_actionAdapter(this));
     startButton.addActionListener(this);
     startButton.setBackground(SystemColor.control);
     startButton.setForeground(SystemColor.controlText);
@@ -1187,9 +1187,9 @@ public class Applet1
   void list_itemStateChanged(ItemEvent e) {
     int i;
 
-    i = Applet1.list.getSelectedIndex();
+    i = SpaceTethers.list.getSelectedIndex();
     if (i >= 0 && i < sampleinput.numSamples) {
-      Applet1.textArea1.setText(sampleinput.samples[i]);
+      SpaceTethers.textArea1.setText(sampleinput.samples[i]);
     }
     if (i == sampleinput.numSamples) {
        textArea1.setText(k.outputGet());
@@ -1226,11 +1226,11 @@ public class Applet1
 	}
 } // end class
 
-class Applet1_startButton_actionAdapter
+class SpaceTethers_startButton_actionAdapter
     implements ActionListener {
-  Applet1 adaptee;
+  SpaceTethers adaptee;
 
-  Applet1_startButton_actionAdapter(Applet1 adaptee) {
+  SpaceTethers_startButton_actionAdapter(SpaceTethers adaptee) {
     this.adaptee = adaptee;
   }
 
@@ -1239,11 +1239,11 @@ class Applet1_startButton_actionAdapter
   }
 }
 
-class Applet1_list_itemAdapter
+class SpaceTethers_list_itemAdapter
     implements ItemListener {
-  Applet1 adaptee;
+  SpaceTethers adaptee;
 
-  Applet1_list_itemAdapter(Applet1 adaptee) {
+  SpaceTethers_list_itemAdapter(SpaceTethers adaptee) {
     this.adaptee = adaptee;
   }
 

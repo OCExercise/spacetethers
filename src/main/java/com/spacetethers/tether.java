@@ -154,7 +154,7 @@ public class tether extends simtype {
                    String.valueOf(deltaLength2));
      }
 
-     // Applet1.setMessage("deltaLength = " + String.valueOf(deltaLength));
+     // SpaceTethers.setMessage("deltaLength = " + String.valueOf(deltaLength));
 
      velocity deltaVel = new velocity(smallEnd.vel);
      deltaVel.subtract(bigEnd.vel);

@@ -155,9 +155,9 @@ public class attime  {
               tether t1 = connect.masses(fromLabel,toLabel,
                                          fromDiameter, toDiameter);
               if (t1 != null) {
-                Applet1.addSimObject(t1);
+                SpaceTethers.addSimObject(t1);
                 t1.simulate1(deltaT);
-                this.result = "status good " + Applet1.getNumSimObjects();
+                this.result = "status good " + SpaceTethers.getNumSimObjects();
               } else {
                 this.result = "null tether";
               }
@@ -202,13 +202,13 @@ public class attime  {
     }
 
     if ("stop".equals(nt)) {
-       Applet1.doStop();
+       SpaceTethers.doStop();
        return;
     }
 
     if ("remove".equals(nt)) {
        simtype s1 = findsimobject.labelToSimObjectOrDie(parseLine.nextToken());
-       Applet1.removeSimObject(s1);
+       SpaceTethers.removeSimObject(s1);
        findsimobject.remove(s1);
        return;
     }
@@ -224,7 +224,7 @@ public class attime  {
       double SpringPerc = k.readDouble(parseLine.nextToken());
       winch w1 = new winch(label, Power, Force, Speed,
                            Distance, Time, TensionPerc, SpringPerc);
-      Applet1.addSimObject(w1);
+      SpaceTethers.addSimObject(w1);
       return;
     }
 
@@ -276,7 +276,7 @@ public class attime  {
          toMass.kg += kg;
       } else if (!"nowhere".equals(toLabel)){
          toMass = new mass(kg, fromMass.pos, fromMass.vel, toLabel);
-         Applet1.addSimObject(toMass);
+         SpaceTethers.addSimObject(toMass);
       }
 
       if (toMass != null) {
@@ -287,7 +287,7 @@ public class attime  {
   // We only paint the next atTime command and the lastResult
   public static void paint(Graphics g) {
     if (lastZoomScale != zoomScale) {
-      Applet1.setStatusMessage();
+      SpaceTethers.setStatusMessage();
       lastZoomScale=zoomScale;
     }
 
